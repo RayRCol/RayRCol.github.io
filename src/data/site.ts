@@ -32,18 +32,26 @@ export interface StatBlockProps {
 export interface LaunchRowProps {
   date: string;
   detail: string;
+  href: string;
   title: string;
 }
 
 export interface DiscoveryContent {
+  archiveHref: string;
+  archiveLabel: string;
   body: string;
   cta: NavLink;
+  image: string;
   label: string;
+  rangeEnd: string;
+  rangeStart: string;
   title: string;
 }
 
 export interface NextDepartureContent {
+  allHref: string;
   countdown: string;
+  image: string;
   label: string;
   title: string;
 }
@@ -56,12 +64,12 @@ export interface FooterMeta {
 export const heroLeftNav: NavLink[] = [
   { label: 'Missions', href: '#missions' },
   { label: 'Explore', href: '#explore' },
-  { label: 'Science', href: '#science' },
+  { label: 'Science', href: '/#science' },
 ];
 
 export const heroRightNav: NavLink[] = [
   { label: 'Technology', href: '#technology' },
-  { label: 'News', href: '#about' },
+  { label: 'News', href: '/reports/' },
   { label: 'About', href: '#about' },
 ];
 
@@ -82,91 +90,11 @@ export const heroContent: HeroContent = {
   utilityLabel: 'EST. 2024',
 };
 
-export const missions: MissionCardProps[] = [
-  {
-    title: 'Artemis VII',
-    description:
-      'Lunar south pole permanent habitat establishment and ice extraction operations.',
-    status: 'Nominal',
-    statusTone: 'green',
-    icon: 'satellite',
-    href: '#technology',
-  },
-  {
-    title: 'Europa Recon',
-    description:
-      "Sub-surface ocean mapping of Jupiter's moon via autonomous drone deployment.",
-    status: 'En Route',
-    statusTone: 'blue',
-    icon: 'rocket',
-    href: '#explore',
-  },
-  {
-    title: 'Helios Deep Probe',
-    description:
-      'Close-proximity solar coronal mass ejection sampling and magnetic field analysis.',
-    status: 'Critical',
-    statusTone: 'gold',
-    icon: 'star',
-    href: '#science',
-  },
-];
-
-export const discovery: DiscoveryContent = {
-  label: 'Latest Discovery',
-  title: 'EXOPLANET / K2-18B',
-  body:
-    'Our deep space array has confirmed the presence of carbon-bearing molecules in the atmosphere of K2-18b, a habitable-zone exoplanet 120 light-years from Earth.',
-  cta: {
-    href: '#technology',
-    label: 'Read Report',
-  },
-};
-
-export const spectrumBars: SpectrumBarProps[] = [
-  { value: 40 },
-  { value: 20 },
-  { value: 60 },
-  { value: 90 },
-  { value: 45 },
-  { value: 30 },
-  { value: 80 },
-  { value: 100 },
-  { value: 50 },
-  { value: 70 },
-  { value: 30 },
-  { value: 60 },
-];
-
 export const stats: StatBlockProps[] = [
   { value: '14', label: 'Active Missions' },
   { value: '4,200', label: 'Hours in Void' },
   { value: '8', label: 'Planets Surveyed' },
   { value: '2.4B', label: 'Miles Traveled' },
-];
-
-export const nextDeparture: NextDepartureContent = {
-  title: 'Next Departure',
-  label: 'T-Minus',
-  countdown: '48:12:04:33',
-};
-
-export const launches: LaunchRowProps[] = [
-  {
-    date: 'OCT 24, 2024',
-    title: 'Vanguard Heavy',
-    detail: 'Orbital Array Module 4',
-  },
-  {
-    date: 'NOV 12, 2024',
-    title: 'Ares Interceptor',
-    detail: 'Mars Surface Rover',
-  },
-  {
-    date: 'DEC 05, 2024',
-    title: 'Deep Space Courier',
-    detail: 'Crew Resupply V',
-  },
 ];
 
 export const footerMeta: FooterMeta = {
@@ -176,10 +104,10 @@ export const footerMeta: FooterMeta = {
 };
 
 export const footerDirectory: NavLink[] = [
-  { label: 'Missions', href: '#missions' },
-  { label: 'Discoveries', href: '#explore' },
-  { label: 'Technology', href: '#technology' },
-  { label: 'Science', href: '#science' },
+  { label: 'Missions', href: '/missions/' },
+  { label: 'Reports', href: '/reports/' },
+  { label: 'Technology', href: '/departures/' },
+  { label: 'Science', href: '/#science' },
 ];
 
 export const footerPolicies: string[] = ['Privacy', 'Terms', 'Classified'];

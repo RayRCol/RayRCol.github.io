@@ -1,4 +1,5 @@
 import { MotionConfig, motion, useInView } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { useRef } from 'react';
 
 import type { LaunchRowProps, NextDepartureContent } from '../data/site';
@@ -9,14 +10,14 @@ interface DepartureSectionProps {
   launches: LaunchRowProps[];
 }
 
-function LaunchRow({ date, detail, index, title }: LaunchRowProps & { index: number }) {
+function LaunchRow({ date, detail, href, index, title }: LaunchRowProps & { index: number }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
     <motion.a
       ref={ref}
-      href="#about"
+      href={href}
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.78, delay: index * 0.14, ease: aeonEase }}
@@ -47,8 +48,8 @@ export default function DepartureSection({ content, launches }: DepartureSection
           >
             <div className="relative aspect-[4/3] overflow-hidden">
               <img
-                src="/images/rocket-launch.png"
-                alt="Rocket launch in a dense deep-space field"
+                src={content.image}
+                alt="Featured launch window"
                 className="h-full w-full object-cover grayscale transition duration-700 group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(255,255,255,0.08),transparent_45%)]" />
@@ -67,7 +68,15 @@ export default function DepartureSection({ content, launches }: DepartureSection
             viewport={inViewViewport}
             transition={fadeUpTransition}
           >
-            <h2 className="font-display text-5xl leading-none font-bold text-white sm:text-6xl">{content.title}</h2>
+            <div className="flex items-end justify-between gap-6">
+              <h2 className="font-display text-5xl leading-none font-bold text-white sm:text-6xl">{content.title}</h2>
+              <a
+                href={content.allHref}
+                className="hidden items-center gap-2 font-display text-[12px] uppercase tracking-[0.24em] text-white/55 transition-colors duration-300 hover:text-white md:inline-flex"
+              >
+                View Schedule <ArrowRight size={16} />
+              </a>
+            </div>
             <div className="mt-8">
               {launches.map((launch, index) => (
                 <LaunchRow key={`${launch.date}-${launch.title}`} index={index} {...launch} />

@@ -6,21 +6,35 @@ import StatsSection from '../components/StatsSection';
 import DepartureSection from '../components/DepartureSection';
 import FooterSection from '../components/FooterSection';
 import {
-  discovery,
   footerDirectory,
   footerMeta,
   footerPolicies,
   heroContent,
   heroLeftNav,
   heroRightNav,
-  launches,
-  missions,
   mobileNav,
-  nextDeparture,
-  spectrumBars,
   stats,
 } from '../data/site';
+import {
+  getDepartureEntries,
+  getMissionEntries,
+  getReportEntries,
+  toDiscoveryContent,
+  toLaunchRow,
+  toMissionCard,
+  toNextDepartureContent,
+  toSpectrumBars,
+} from '../lib/content';
 import '../styles/global.css';
+
+const [missionEntries, reportEntries, departureEntries] = await Promise.all([
+  getMissionEntries(),
+  getReportEntries(),
+  getDepartureEntries(),
+]);
+
+const featuredReport = reportEntries[0];
+const featuredDeparture = departureEntries[0];
 ---
 
 <html lang="en" class="bg-page-bg">
@@ -51,10 +65,22 @@ import '../styles/global.css';
         mobileNav={mobileNav}
         rightNav={heroRightNav}
       />
-      <MissionsSection client:visible missions={missions} />
-      <DiscoverySection client:visible bars={spectrumBars} content={discovery} />
+      <MissionsSection client:visible missions={missionEntries.map(toMissionCard)} />
+      {featuredReport ? (
+        <DiscoverySection
+          client:visible
+          bars={toSpectrumBars(featuredReport)}
+          content={toDiscoveryContent(featuredReport)}
+        />
+      ) : null}
       <StatsSection client:visible stats={stats} />
-      <DepartureSection client:visible content={nextDeparture} launches={launches} />
+      {featuredDeparture ? (
+        <DepartureSection
+          client:visible
+          content={toNextDepartureContent(featuredDeparture)}
+          launches={departureEntries.map(toLaunchRow)}
+        />
+      ) : null}
       <FooterSection
         client:visible
         directory={footerDirectory}

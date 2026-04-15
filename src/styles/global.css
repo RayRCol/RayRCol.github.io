@@ -57,6 +57,68 @@ img {
   text-wrap: balance;
 }
 
+.markdown-prose {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.markdown-prose > * + * {
+  margin-top: 1.25rem;
+}
+
+.markdown-prose h2,
+.markdown-prose h3,
+.markdown-prose h4 {
+  font-family: var(--font-display);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.markdown-prose h2 {
+  margin-top: 2.75rem;
+  font-size: clamp(1.7rem, 2vw, 2.25rem);
+}
+
+.markdown-prose h3 {
+  margin-top: 2rem;
+  font-size: clamp(1.35rem, 1.5vw, 1.7rem);
+}
+
+.markdown-prose p,
+.markdown-prose li {
+  font-size: 1.08rem;
+  line-height: 2;
+}
+
+.markdown-prose ul,
+.markdown-prose ol {
+  padding-left: 1.25rem;
+}
+
+.markdown-prose li::marker {
+  color: #4a9eff;
+}
+
+.markdown-prose strong {
+  color: #fff;
+}
+
+.markdown-prose a {
+  color: #4a9eff;
+}
+
+.markdown-prose hr {
+  margin-block: 2rem;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.markdown-prose blockquote {
+  border-left: 1px solid rgba(74, 158, 255, 0.6);
+  padding-left: 1rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

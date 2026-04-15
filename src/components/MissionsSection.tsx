@@ -49,7 +49,7 @@ function MissionCard({ description, href, icon, status, statusTone, title, index
         href={href}
         className="mt-12 inline-flex items-center gap-3 font-display text-[11px] uppercase tracking-[0.26em] text-white/58 transition-colors duration-300 hover:text-accent-blue"
       >
-        Telemetry <ArrowRight size={14} />
+        Mission Brief <ArrowRight size={14} />
       </a>
     </motion.article>
   );
@@ -77,7 +77,7 @@ export default function MissionsSection({ missions }: MissionsSectionProps) {
               </h2>
             </div>
             <a
-              href="#technology"
+              href="/missions/"
               className="hidden items-center gap-2 font-display text-[12px] uppercase tracking-[0.24em] text-white/55 transition-colors duration-300 hover:text-white md:inline-flex"
             >
               View All <ArrowRight size={16} />

@@ -27,12 +27,18 @@ function SpectrumBar({ index, value }: SpectrumBarProps & { index: number }) {
   );
 }
 
+function renderTitleLines(title: string) {
+  return title.split('/').map((part) => part.trim()).filter(Boolean);
+}
+
 export default function DiscoverySection({ bars, content }: DiscoverySectionProps) {
+  const titleLines = renderTitleLines(content.title);
+
   return (
     <MotionConfig reducedMotion="user">
       <section id="explore" className="relative isolate overflow-hidden bg-page-bg py-24 sm:py-28">
         <img
-          src="/images/exoplanet.png"
+          src={content.image}
           alt=""
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-40"
         />
@@ -46,21 +52,38 @@ export default function DiscoverySection({ bars, content }: DiscoverySectionProp
             transition={fadeUpTransition}
             className="max-w-3xl"
           >
-            <div className="flex items-center gap-3 font-display text-[11px] uppercase tracking-[0.26em] text-warm-gold">
-              <Telescope size={16} strokeWidth={1.6} />
-              <span>{content.label}</span>
+            <div className="flex items-center justify-between gap-6">
+              <div className="flex items-center gap-3 font-display text-[11px] uppercase tracking-[0.26em] text-warm-gold">
+                <Telescope size={16} strokeWidth={1.6} />
+                <span>{content.label}</span>
+              </div>
+              <a
+                href={content.archiveHref}
+                className="hidden items-center gap-2 font-display text-[11px] uppercase tracking-[0.24em] text-white/52 transition-colors duration-300 hover:text-white md:inline-flex"
+              >
+                {content.archiveLabel} <ArrowRight size={14} />
+              </a>
             </div>
             <h2 className="mt-5 font-display text-[3rem] leading-[0.94] font-bold text-white sm:text-6xl lg:text-[5.2rem]">
-              <span className="block">EXOPLANET /</span>
-              <span className="block">K2-18B</span>
+              {titleLines.map((line) => (
+                <span className="block" key={line}>{line}</span>
+              ))}
             </h2>
             <p className="mt-7 max-w-2xl text-[1.2rem] leading-9 text-white/75">{content.body}</p>
-            <a
-              href={content.cta.href}
-              className="mt-12 inline-flex min-h-12 items-center justify-center gap-3 bg-white px-8 font-display text-[11px] uppercase tracking-[0.24em] text-page-bg transition-colors duration-300 hover:bg-accent-blue hover:text-white"
-            >
-              {content.cta.label} <ArrowRight size={14} />
-            </a>
+            <div className="mt-12 flex flex-wrap gap-3">
+              <a
+                href={content.cta.href}
+                className="inline-flex min-h-12 items-center justify-center gap-3 bg-white px-8 font-display text-[11px] uppercase tracking-[0.24em] text-page-bg transition-colors duration-300 hover:bg-accent-blue hover:text-white"
+              >
+                {content.cta.label} <ArrowRight size={14} />
+              </a>
+              <a
+                href={content.archiveHref}
+                className="inline-flex min-h-12 items-center justify-center gap-3 border border-white/14 px-8 font-display text-[11px] uppercase tracking-[0.24em] text-white/70 transition-colors duration-300 hover:border-accent-blue hover:text-accent-blue md:hidden"
+              >
+                Archive <ArrowRight size={14} />
+              </a>
+            </div>
           </motion.div>
 
           <motion.div
@@ -79,8 +102,8 @@ export default function DiscoverySection({ bars, content }: DiscoverySectionProp
               ))}
             </div>
             <div className="mt-6 flex items-center justify-between font-mono text-[0.92rem] text-white/55">
-              <span>0.5μm</span>
-              <span>5.0μm</span>
+              <span>{content.rangeStart}</span>
+              <span>{content.rangeEnd}</span>
             </div>
           </motion.div>
         </div>

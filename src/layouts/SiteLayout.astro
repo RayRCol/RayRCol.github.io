@@ -1,0 +1,53 @@
+---
+import FooterSection from '../components/FooterSection';
+import { footerDirectory, footerMeta, footerPolicies } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  description?: string;
+  title: string;
+}
+
+const { description = 'AEON Space Agency content archive.', title } = Astro.props;
+---
+
+<html lang="en" class="bg-page-bg">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="bg-page-bg font-body text-white antialiased">
+    <div class="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top,rgba(74,158,255,0.08),transparent_28%),linear-gradient(to_bottom,#080d14,#05080c)]">
+      <header class="border-b border-white/8 bg-page-bg/90 backdrop-blur-sm">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-8 lg:px-12">
+          <a href="/" class="font-display text-sm uppercase tracking-[0.28em] text-white/82 transition-colors duration-300 hover:text-accent-blue">
+            AEON / SPACE
+          </a>
+          <nav class="hidden items-center gap-6 font-display text-[11px] uppercase tracking-[0.24em] text-white/56 sm:flex">
+            <a href="/missions/" class="transition-colors duration-300 hover:text-accent-blue">Missions</a>
+            <a href="/reports/" class="transition-colors duration-300 hover:text-accent-blue">Reports</a>
+            <a href="/departures/" class="transition-colors duration-300 hover:text-accent-blue">Departures</a>
+          </nav>
+        </div>
+      </header>
+      <slot />
+      <FooterSection
+        client:visible
+        directory={footerDirectory}
+        meta={footerMeta}
+        policies={footerPolicies}
+      />
+    </div>
+  </body>
+</html>
