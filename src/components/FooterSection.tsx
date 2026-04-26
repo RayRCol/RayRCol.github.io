@@ -33,7 +33,7 @@ export default function FooterSection({ directory, meta, policies }: FooterSecti
 
             <div>
               <h3 className="font-display text-[11px] uppercase tracking-[0.26em] text-white/80">Directory</h3>
-              <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4">
+              <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                 {directory.map((item) => (
                   <li key={item.label}>
                     <a className="text-[1.1rem] text-white/60 transition-colors duration-300 hover:text-accent-blue" href={item.href}>

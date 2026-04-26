@@ -36,15 +36,15 @@ export default function DiscoverySection({ bars, content }: DiscoverySectionProp
 
   return (
     <MotionConfig reducedMotion="user">
-      <section id="explore" className="relative isolate overflow-hidden bg-page-bg py-24 sm:py-28">
+      <section id="explore" className="discovery-surface relative isolate overflow-hidden py-20 sm:py-24 lg:py-28">
         <img
           src={content.image}
           alt=""
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,#080d14,rgba(8,13,20,0.55),#080d14)]" />
+        <div className="discovery-overlay absolute inset-0 -z-10" />
 
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,480px)] lg:items-end lg:px-12">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(300px,460px)] lg:items-end lg:gap-12 lg:px-12">
           <motion.div
             initial={{ opacity: 0, x: -56 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -59,27 +59,27 @@ export default function DiscoverySection({ bars, content }: DiscoverySectionProp
               </div>
               <a
                 href={content.archiveHref}
-                className="hidden items-center gap-2 font-display text-[11px] uppercase tracking-[0.24em] text-white/52 transition-colors duration-300 hover:text-white md:inline-flex"
+                className="discovery-meta hidden items-center gap-2 font-display text-[11px] uppercase tracking-[0.24em] transition-colors duration-300 hover:text-accent-blue md:inline-flex"
               >
                 {content.archiveLabel} <ArrowRight size={14} />
               </a>
             </div>
-            <h2 className="mt-5 font-display text-[3rem] leading-[0.94] font-bold text-white sm:text-6xl lg:text-[5.2rem]">
+            <h2 className="discovery-title mt-5 font-display text-[2.5rem] leading-[0.94] font-bold sm:text-[3.35rem] lg:text-[5.2rem]">
               {titleLines.map((line) => (
                 <span className="block" key={line}>{line}</span>
               ))}
             </h2>
-            <p className="mt-7 max-w-2xl text-[1.2rem] leading-9 text-white/75">{content.body}</p>
-            <div className="mt-12 flex flex-wrap gap-3">
+            <p className="discovery-copy mt-6 max-w-2xl text-[1.05rem] leading-8 sm:mt-7 sm:text-[1.2rem] sm:leading-9">{content.body}</p>
+            <div className="mt-10 flex flex-wrap gap-3 sm:mt-12">
               <a
                 href={content.cta.href}
-                className="inline-flex min-h-12 items-center justify-center gap-3 bg-white px-8 font-display text-[11px] uppercase tracking-[0.24em] text-page-bg transition-colors duration-300 hover:bg-accent-blue hover:text-white"
+                className="inline-flex min-h-12 items-center justify-center gap-3 bg-white px-8 font-display text-[11px] uppercase tracking-[0.24em] text-navy-text transition-colors duration-300 hover:bg-accent-blue hover:text-white"
               >
                 {content.cta.label} <ArrowRight size={14} />
               </a>
               <a
                 href={content.archiveHref}
-                className="inline-flex min-h-12 items-center justify-center gap-3 border border-white/14 px-8 font-display text-[11px] uppercase tracking-[0.24em] text-white/70 transition-colors duration-300 hover:border-accent-blue hover:text-accent-blue md:hidden"
+                className="discovery-meta inline-flex min-h-12 items-center justify-center gap-3 border border-white/14 px-8 font-display text-[11px] uppercase tracking-[0.24em] transition-colors duration-300 hover:border-accent-blue hover:text-accent-blue md:hidden"
               >
                 Archive <ArrowRight size={14} />
               </a>
@@ -91,17 +91,17 @@ export default function DiscoverySection({ bars, content }: DiscoverySectionProp
             whileInView={{ opacity: 1, x: 0 }}
             viewport={inViewViewport}
             transition={fadeUpTransition}
-            className="border border-white/20 bg-black/20 p-7 backdrop-blur-md sm:p-8"
+            className="discovery-chart-card border border-white/20 p-6 backdrop-blur-md sm:p-8"
           >
-            <div className="font-display text-[11px] uppercase tracking-[0.28em] text-white/60">
+            <div className="discovery-meta font-display text-[11px] uppercase tracking-[0.28em]">
               Spectral Analysis
             </div>
-            <div className="mt-10 grid h-52 grid-cols-12 items-end gap-3">
+            <div className="mt-8 grid h-44 grid-cols-12 items-end gap-2 sm:mt-10 sm:h-52 sm:gap-3">
               {bars.map((bar, index) => (
                 <SpectrumBar key={`${bar.value}-${index}`} index={index} value={bar.value} />
               ))}
             </div>
-            <div className="mt-6 flex items-center justify-between font-mono text-[0.92rem] text-white/55">
+            <div className="discovery-axis mt-5 flex items-center justify-between font-mono text-[0.85rem] sm:mt-6 sm:text-[0.92rem]">
               <span>{content.rangeStart}</span>
               <span>{content.rangeEnd}</span>
             </div>

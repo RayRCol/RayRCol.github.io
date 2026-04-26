@@ -14,7 +14,7 @@ const missions = defineCollection({
     vehicle: z.string(),
     missionWindow: z.string(),
     destination: z.string(),
-    coverImage: z.string().default('/images/rocket-launch.png'),
+    coverImage: z.string().default('/images/mission-article-01.png'),
   }),
 });
 
@@ -25,7 +25,7 @@ const reports = defineCollection({
     summary: z.string(),
     label: z.string(),
     publishedAt: z.coerce.date(),
-    image: z.string().default('/images/exoplanet.png'),
+    image: z.string().default('/images/report-article-01.png'),
     spectrumBars: z.array(z.number().int().min(0).max(100)).length(12),
     rangeStart: z.string(),
     rangeEnd: z.string(),
@@ -40,7 +40,7 @@ const departures = defineCollection({
     detail: z.string(),
     launchDate: z.coerce.date(),
     launchTime: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d(?::[0-5]\d)?$/),
-    image: z.string().default('/images/rocket-launch.png'),
+    image: z.string().default('/images/departures-article-01.png'),
     launchSite: z.string(),
     missionWindow: z.string(),
     order: z.number(),
@@ -55,7 +55,7 @@ const news = defineCollection({
     publishedAt: z.coerce.date(),
     author: z.string(),
     desk: z.string(),
-    image: z.string().default('/images/space-hero-bg.png'),
+    image: z.string().default('/images/news-article-01.png'),
   }),
 });
 
@@ -65,7 +65,7 @@ const pages = defineCollection({
     title: z.string(),
     summary: z.string(),
     eyebrow: z.string(),
-    image: z.string().default('/images/space-hero-bg.png'),
+    image: z.string().default('/images/singleton-about.png'),
     highlights: z.array(
       z.object({
         label: z.string(),

@@ -34,8 +34,8 @@ const { description, eyebrow, highlights = [], image, summary, title } = Astro.p
       <div class={`relative z-10 ${image ? 'flex min-h-[420px] items-end p-8 sm:min-h-[520px] sm:p-10 lg:min-h-[620px] lg:p-14' : ''}`}>
         <div class="max-w-5xl">
           <p class="font-display text-[11px] uppercase tracking-[0.28em] text-accent-blue">{eyebrow}</p>
-          <h1 class="mt-5 max-w-4xl font-display text-5xl leading-none font-bold text-white sm:text-6xl lg:text-7xl">{title}</h1>
-          <p class={`mt-7 max-w-3xl text-lg leading-8 sm:text-xl ${image ? 'text-white/76' : 'text-white/68'}`}>{summary}</p>
+          <h1 class="overlay-hero-title mt-5 max-w-4xl font-display text-5xl leading-none font-bold sm:text-6xl lg:text-7xl">{title}</h1>
+          <p class={`overlay-hero-copy mt-7 max-w-3xl text-lg leading-8 sm:text-xl ${image ? 'overlay-hero-copy-image' : 'overlay-hero-copy-plain'}`}>{summary}</p>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { Compass, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 import type { HeroContent, NavLink } from '../data/site';
+import ThemeToggle from './ThemeToggle';
 import { aeonEase } from './motion';
 
 interface HeroShellProps {
@@ -51,7 +52,7 @@ export default function HeroShell({
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="relative h-[100svh] min-h-[760px] overflow-hidden bg-page-cream">
+      <section className="relative h-[100svh] min-h-[680px] overflow-hidden bg-page-cream sm:min-h-[760px]">
         <div
           className="absolute inset-0 z-0 overflow-hidden bg-dark-space"
           style={{
@@ -61,7 +62,7 @@ export default function HeroShell({
           <img
             src="/images/top_hero_image.png"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover object-top opacity-45 mix-blend-screen"
+            className="hero-sky-image absolute inset-0 h-full w-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(74,158,255,0.25),transparent_45%),radial-gradient(circle_at_50%_10%,rgba(255,255,255,0.08),transparent_42%)]" />
 
@@ -111,22 +112,25 @@ export default function HeroShell({
 
         <div className="absolute inset-0 z-10">
           <div className="absolute inset-x-0 top-0 z-30 flex items-center justify-between px-5 py-5 sm:px-8 lg:px-8">
-            <span className="font-display text-[10px] uppercase tracking-[0.25em] text-white/60">
+            <span className="hero-utility-label font-display text-[10px] uppercase tracking-[0.25em]">
               AEON / SPACE
             </span>
-            <span className="hidden font-display text-[10px] uppercase tracking-[0.25em] text-white/60 lg:block">
-              {content.utilityLabel}
-            </span>
-            <button
-              type="button"
-              className="rounded-full border border-navy-text/15 bg-page-cream/78 p-2 text-navy-text backdrop-blur-sm transition-colors duration-300 hover:bg-white lg:hidden"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-navigation"
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              onClick={() => setIsMenuOpen((open) => !open)}
-            >
-              {isMenuOpen ? <X size={18} strokeWidth={1.5} /> : <Menu size={18} strokeWidth={1.5} />}
-            </button>
+            <div className="ml-auto flex items-center gap-2 sm:gap-3">
+              <span className="hero-utility-label hidden font-display text-[10px] uppercase tracking-[0.25em] lg:block">
+                {content.utilityLabel}
+              </span>
+              <ThemeToggle variant="hero" />
+              <button
+                type="button"
+                className="rounded-full border border-navy-text/15 bg-page-cream/78 p-2 text-navy-text backdrop-blur-sm transition-colors duration-300 hover:bg-white lg:hidden"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-navigation"
+                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                onClick={() => setIsMenuOpen((open) => !open)}
+              >
+                {isMenuOpen ? <X size={18} strokeWidth={1.5} /> : <Menu size={18} strokeWidth={1.5} />}
+              </button>
+            </div>
           </div>
 
           <AnimatePresence>
@@ -220,7 +224,7 @@ export default function HeroShell({
               initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.85, ease: aeonEase }}
-              className="relative flex h-[90px] w-[90px] items-center justify-center rounded-full bg-white shadow-[0_16px_48px_rgba(0,0,0,0.35)] sm:h-[110px] sm:w-[110px] lg:h-[136px] lg:w-[136px]"
+              className="relative flex h-[84px] w-[84px] items-center justify-center rounded-full bg-white shadow-[0_16px_48px_rgba(0,0,0,0.35)] sm:h-[110px] sm:w-[110px] lg:h-[136px] lg:w-[136px]"
             >
               <span
                 className="absolute rounded-[20%] border border-navy-text/30"
@@ -238,16 +242,16 @@ export default function HeroShell({
                   transform: 'rotate(-45deg)',
                 }}
               />
-              <Compass className="text-dark-space" size={44} strokeWidth={1} />
+              <Compass className="text-dark-space" size={40} strokeWidth={1} />
             </motion.div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 top-[34%] flex flex-col items-center justify-center px-6 pb-16 text-center sm:px-8">
+          <div className="absolute bottom-0 left-0 right-0 top-[31%] flex flex-col items-center justify-center px-6 pb-12 text-center sm:top-[34%] sm:px-8 sm:pb-16">
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.9, ease: aeonEase }}
-              className="font-display text-[2.2rem] leading-[0.92] font-bold uppercase tracking-[0.03em] text-navy-text sm:text-5xl md:text-6xl lg:text-[5.5rem]"
+              className="font-display text-[1.95rem] leading-[0.92] font-bold uppercase tracking-[0.03em] text-navy-text sm:text-5xl md:text-6xl lg:text-[5.5rem]"
             >
               <span className="block">{content.eyebrow}</span>
               <span className="mt-3 block bg-[linear-gradient(to_right,#1a5fa0,#8b6532)] bg-clip-text text-transparent">
@@ -259,7 +263,7 @@ export default function HeroShell({
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.65, duration: 0.9, ease: aeonEase }}
-              className="text-balance mt-7 max-w-4xl text-[1rem] font-light leading-8 text-muted-navy/75 sm:text-[1.08rem]"
+              className="text-balance mt-5 max-w-4xl text-[0.98rem] font-light leading-7 text-muted-navy/75 sm:mt-7 sm:text-[1.08rem] sm:leading-8"
             >
               {content.paragraph}
             </motion.p>
@@ -268,7 +272,7 @@ export default function HeroShell({
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.85, ease: aeonEase }}
-              className="mt-9 flex w-full max-w-xl flex-col gap-3 sm:flex-row sm:justify-center"
+              className="mt-8 flex w-full max-w-xl flex-col gap-3 sm:mt-9 sm:flex-row sm:justify-center"
             >
               <a
                 href={content.primaryCta.href}
@@ -288,7 +292,7 @@ export default function HeroShell({
               initial={{ opacity: 0, scaleY: 0 }}
               animate={{ opacity: 1, scaleY: 1 }}
               transition={{ delay: 1.1, duration: 0.8, ease: aeonEase }}
-              className="mt-12 hidden h-10 w-px origin-top bg-[linear-gradient(to_bottom,rgba(26,46,66,0.4),rgba(26,46,66,0))] sm:block"
+              className="mt-10 hidden h-10 w-px origin-top bg-[linear-gradient(to_bottom,rgba(26,46,66,0.4),rgba(26,46,66,0))] sm:mt-12 sm:block"
             />
           </div>
         </div>
