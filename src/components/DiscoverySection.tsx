@@ -59,9 +59,9 @@ export default function DiscoverySection({ bars, content }: DiscoverySectionProp
               </div>
               <a
                 href={content.archiveHref}
-                className="discovery-meta hidden items-center gap-2 font-display text-[11px] uppercase tracking-[0.24em] transition-colors duration-300 hover:text-accent-blue md:inline-flex"
+                className="discovery-meta group hidden items-center gap-2 font-display text-[11px] uppercase tracking-[0.24em] transition-colors duration-300 hover:text-white md:inline-flex"
               >
-                {content.archiveLabel} <ArrowRight size={14} />
+                {content.archiveLabel} <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={14} />
               </a>
             </div>
             <h2 className="discovery-title mt-5 font-display text-[2.5rem] leading-[0.94] font-bold sm:text-[3.35rem] lg:text-[5.2rem]">

@@ -34,19 +34,19 @@ const { description, eyebrow, highlights = [], image, summary, title } = Astro.p
       <div class={`relative z-10 ${image ? 'flex min-h-[420px] items-end p-8 sm:min-h-[520px] sm:p-10 lg:min-h-[620px] lg:p-14' : ''}`}>
         <div class="max-w-5xl">
           <p class="font-display text-[11px] uppercase tracking-[0.28em] text-accent-blue">{eyebrow}</p>
-          <h1 class="overlay-hero-title mt-5 max-w-4xl font-display text-5xl leading-none font-bold sm:text-6xl lg:text-7xl">{title}</h1>
+          <h1 class={`overlay-hero-title mt-5 max-w-4xl break-words font-display text-[2.85rem] leading-none font-bold sm:text-6xl lg:text-7xl ${image ? 'overlay-hero-title-image' : 'overlay-hero-title-plain'}`}>{title}</h1>
           <p class={`overlay-hero-copy mt-7 max-w-3xl text-lg leading-8 sm:text-xl ${image ? 'overlay-hero-copy-image' : 'overlay-hero-copy-plain'}`}>{summary}</p>
         </div>
       </div>
     </section>
 
-    <section class={`mt-12 ${highlights.length ? 'md:grid md:grid-cols-[minmax(0,1fr)_320px] md:items-start md:gap-8 lg:gap-10' : ''}`}>
-      <article class="markdown-prose max-w-4xl text-pretty">
+    <section class={`mt-12 ${highlights.length ? 'grid gap-10 md:grid-cols-[minmax(0,1fr)_320px] md:items-start md:gap-8 lg:gap-10' : ''}`}>
+      <article class="markdown-prose max-w-4xl text-pretty md:order-1">
         <slot />
       </article>
 
       {highlights.length ? (
-        <aside class="mt-10 border border-white/10 bg-white/[0.04] p-6 sm:p-7 md:mt-0 md:sticky md:top-8 md:self-start lg:top-10">
+        <aside class="order-first border border-white/10 bg-white/[0.04] p-6 sm:p-7 md:order-2 md:sticky md:top-28 md:self-start lg:top-32">
           <div class="font-display text-[10px] uppercase tracking-[0.24em] text-white/52">Core Signals</div>
           <dl class="mt-6 space-y-5">
             {highlights.map((item) => (

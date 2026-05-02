@@ -43,7 +43,7 @@ function MissionCard({ description, href, icon, status, statusTone, title, index
           {status}
         </span>
       </div>
-      <h3 className="mt-14 font-display text-[2rem] leading-none text-white sm:text-[2.1rem]">{title}</h3>
+      <h3 className="mt-14 break-words font-display text-[2rem] leading-none text-white sm:text-[2.1rem]">{title}</h3>
       <p className="mt-5 max-w-xs text-[1.05rem] leading-8 text-white/68">{description}</p>
       <a
         href={href}
@@ -72,15 +72,15 @@ export default function MissionsSection({ missions }: MissionsSectionProps) {
                 <Activity size={16} strokeWidth={1.6} />
                 <span>Live Telemetry</span>
               </div>
-              <h2 className="mt-5 font-display text-5xl leading-none font-bold text-white sm:text-6xl">
+              <h2 className="mt-5 break-words font-display text-[2.85rem] leading-none font-bold text-white sm:text-6xl">
                 Active Missions
               </h2>
             </div>
             <a
               href="/missions/"
-              className="hidden items-center gap-2 font-display text-[12px] uppercase tracking-[0.24em] text-white/55 transition-colors duration-300 hover:text-white md:inline-flex"
+              className="group hidden items-center gap-2 font-display text-[12px] uppercase tracking-[0.24em] text-white/55 transition-colors duration-300 hover:text-white md:inline-flex"
             >
-              View All <ArrowRight size={16} />
+              View All <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={16} />
             </a>
           </motion.div>
 

@@ -22,17 +22,17 @@ function LaunchRow({ date, detail, href, index, time, title }: LaunchRowProps & 
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.78, delay: index * 0.14, ease: aeonEase }}
-      className="group grid gap-4 border-b border-white/10 py-6 md:grid-cols-[180px_minmax(0,1fr)] md:gap-6"
+      className="group -mx-4 grid gap-4 border-b border-white/10 px-4 py-6 transition-colors duration-300 hover:border-accent-blue/45 hover:bg-white/[0.04] md:grid-cols-[180px_minmax(0,1fr)] md:gap-6"
     >
       <div>
-        <div className="font-display text-[1rem] uppercase tracking-[0.18em] text-warm-gold sm:text-[1.05rem]">{date}</div>
-        <div className="departure-meta mt-2 text-sm uppercase tracking-[0.22em]">{time}</div>
+        <div className="font-display text-[1rem] uppercase tracking-[0.18em] text-warm-gold transition-colors duration-300 group-hover:text-accent-blue sm:text-[1.05rem]">{date}</div>
+        <div className="departure-meta mt-2 text-sm uppercase tracking-[0.22em] transition-colors duration-300 group-hover:text-white/72">{time}</div>
       </div>
       <div>
-        <h3 className="departure-title font-display text-[1.8rem] leading-none transition-colors duration-300 group-hover:text-accent-blue sm:text-[2.2rem]">
+        <h3 className="departure-title break-words font-display text-[1.8rem] leading-none transition-colors duration-300 group-hover:text-accent-blue sm:text-[2.2rem]">
           {title}
         </h3>
-        <p className="departure-copy mt-3 text-[1.02rem] sm:text-[1.05rem]">{detail}</p>
+        <p className="departure-copy mt-3 text-[1.02rem] transition-colors duration-300 group-hover:text-white/82 sm:text-[1.05rem]">{detail}</p>
       </div>
     </motion.a>
   );
@@ -74,14 +74,15 @@ export default function DepartureSection({ content, launches }: DepartureSection
             viewport={inViewViewport}
             transition={fadeUpTransition}
           >
-            <div className="flex items-end justify-between gap-6">
-              <h2 className="departure-title font-display text-4xl leading-none font-bold sm:text-6xl">{content.title}</h2>
+            <div>
               <a
                 href={content.allHref}
-                className="departure-meta hidden items-center gap-2 font-display text-[12px] uppercase tracking-[0.24em] transition-colors duration-300 hover:text-accent-blue md:inline-flex"
+                className="departure-meta group mb-5 hidden items-center gap-2 font-display text-[12px] uppercase tracking-[0.24em] transition-colors duration-300 hover:text-white md:inline-flex"
               >
-                View Schedule <ArrowRight size={16} />
+                View Schedule
+                <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={16} />
               </a>
+              <h2 className="departure-title break-words font-display text-4xl leading-none font-bold sm:text-6xl">{content.title}</h2>
             </div>
             <div className="mt-8">
               {launches.map((launch, index) => (

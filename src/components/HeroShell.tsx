@@ -1,8 +1,9 @@
 import { AnimatePresence, MotionConfig, motion } from 'framer-motion';
-import { Compass, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 import type { HeroContent, NavLink } from '../data/site';
+import BrandLogo from './BrandLogo';
 import ThemeToggle from './ThemeToggle';
 import { aeonEase } from './motion';
 
@@ -49,10 +50,24 @@ export default function HeroShell({
   rightNav,
 }: HeroShellProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const orbitalRings = [
+    {
+      size: 'min(55vw, 500px)',
+      borderColor: 'rgba(255, 255, 255, 0.05)',
+    },
+    {
+      size: 'min(38vw, 360px)',
+      borderColor: 'rgba(255, 255, 255, 0.10)',
+    },
+    {
+      size: 'min(24vw, 220px)',
+      borderColor: 'rgba(74, 158, 255, 0.25)',
+    },
+  ];
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="relative h-[100svh] min-h-[680px] overflow-hidden bg-page-cream sm:min-h-[760px]">
+      <section className="relative min-h-[100svh] overflow-hidden bg-page-cream">
         <div
           className="absolute inset-0 z-0 overflow-hidden bg-dark-space"
           style={{
@@ -81,20 +96,7 @@ export default function HeroShell({
             />
           ))}
 
-          {[
-            {
-              size: 'min(55vw, 500px)',
-              borderColor: 'rgba(255, 255, 255, 0.05)',
-            },
-            {
-              size: 'min(38vw, 360px)',
-              borderColor: 'rgba(255, 255, 255, 0.10)',
-            },
-            {
-              size: 'min(24vw, 220px)',
-              borderColor: 'rgba(74, 158, 255, 0.25)',
-            },
-          ].map((ring) => (
+          {orbitalRings.map((ring) => (
             <div
               key={ring.size}
               className="absolute rounded-full border"
@@ -111,10 +113,10 @@ export default function HeroShell({
         </div>
 
         <div className="absolute inset-0 z-10">
-          <div className="absolute inset-x-0 top-0 z-30 flex items-center justify-between px-5 py-5 sm:px-8 lg:px-8">
-            <span className="hero-utility-label font-display text-[10px] uppercase tracking-[0.25em]">
-              AEON / SPACE
-            </span>
+          <div className="absolute inset-x-0 top-0 z-30 flex items-center justify-between px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
+            <a href="/" className="inline-flex w-[138px] items-center transition-opacity duration-300 hover:opacity-80 sm:w-[168px] lg:w-[178px]">
+              <BrandLogo className="w-full" tone="dark" />
+            </a>
             <div className="ml-auto flex items-center gap-2 sm:gap-3">
               <span className="hero-utility-label hidden font-display text-[10px] uppercase tracking-[0.25em] lg:block">
                 {content.utilityLabel}
@@ -161,11 +163,11 @@ export default function HeroShell({
           </AnimatePresence>
 
           <div
-            className="absolute hidden lg:block"
+            className="absolute z-30 hidden lg:block"
             style={{
               left: '25%',
               top: '21%',
-              transform: 'translate(-50%, -50%) rotate(12.7deg)',
+              transform: 'translate(-50%, -50%) rotate(10deg)',
             }}
           >
             <motion.nav
@@ -187,11 +189,11 @@ export default function HeroShell({
           </div>
 
           <div
-            className="absolute hidden lg:block"
+            className="absolute z-30 hidden lg:block"
             style={{
               left: '75%',
               top: '21%',
-              transform: 'translate(-50%, -50%) rotate(-12.7deg)',
+              transform: 'translate(-50%, -50%) rotate(-10deg)',
             }}
           >
             <motion.nav
@@ -212,46 +214,23 @@ export default function HeroShell({
             </motion.nav>
           </div>
 
-          <div
-            className="absolute z-20"
-            style={{
-              left: '50%',
-              top: '26%',
-              transform: 'translate(-50%, -50%)',
-            }}
-          >
+          <div className="absolute left-1/2 top-[23%] z-20 -translate-x-1/2 -translate-y-1/2 sm:top-[24%] md:top-[25%] lg:top-[26%]">
             <motion.div
               initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.85, ease: aeonEase }}
               className="relative flex h-[84px] w-[84px] items-center justify-center rounded-full bg-white shadow-[0_16px_48px_rgba(0,0,0,0.35)] sm:h-[110px] sm:w-[110px] lg:h-[136px] lg:w-[136px]"
             >
-              <span
-                className="absolute rounded-[20%] border border-navy-text/30"
-                style={{
-                  width: '58%',
-                  height: '58%',
-                  transform: 'rotate(45deg)',
-                }}
-              />
-              <span
-                className="absolute rounded-[20%] border border-navy-text/15"
-                style={{
-                  width: '76%',
-                  height: '76%',
-                  transform: 'rotate(-45deg)',
-                }}
-              />
-              <Compass className="text-dark-space" size={40} strokeWidth={1} />
+              <BrandLogo kind="symbol" className="w-[76%]" tone="light" />
             </motion.div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 top-[31%] flex flex-col items-center justify-center px-6 pb-12 text-center sm:top-[34%] sm:px-8 sm:pb-16">
+          <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center justify-center px-6 pb-10 pt-[9.5rem] text-center sm:px-8 sm:pb-14 sm:pt-[12rem] md:pt-[14rem] lg:pb-16 lg:pt-[18rem]">
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.9, ease: aeonEase }}
-              className="font-display text-[1.95rem] leading-[0.92] font-bold uppercase tracking-[0.03em] text-navy-text sm:text-5xl md:text-6xl lg:text-[5.5rem]"
+              className="max-w-[11ch] font-display text-[1.65rem] leading-[0.92] font-bold uppercase tracking-[0.03em] text-navy-text sm:max-w-none sm:text-[2.5rem] md:text-[3.35rem] lg:text-[5.5rem]"
             >
               <span className="block">{content.eyebrow}</span>
               <span className="mt-3 block bg-[linear-gradient(to_right,#1a5fa0,#8b6532)] bg-clip-text text-transparent">
@@ -263,7 +242,7 @@ export default function HeroShell({
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.65, duration: 0.9, ease: aeonEase }}
-              className="text-balance mt-5 max-w-4xl text-[0.98rem] font-light leading-7 text-muted-navy/75 sm:mt-7 sm:text-[1.08rem] sm:leading-8"
+              className="text-balance mt-5 max-w-md text-[0.98rem] font-light leading-7 text-muted-navy/75 sm:mt-6 sm:max-w-2xl sm:text-[1.04rem] sm:leading-8 md:max-w-3xl md:text-[1.08rem]"
             >
               {content.paragraph}
             </motion.p>
@@ -292,7 +271,7 @@ export default function HeroShell({
               initial={{ opacity: 0, scaleY: 0 }}
               animate={{ opacity: 1, scaleY: 1 }}
               transition={{ delay: 1.1, duration: 0.8, ease: aeonEase }}
-              className="mt-10 hidden h-10 w-px origin-top bg-[linear-gradient(to_bottom,rgba(26,46,66,0.4),rgba(26,46,66,0))] sm:mt-12 sm:block"
+              className="mt-8 hidden h-8 w-px origin-top bg-[linear-gradient(to_bottom,rgba(26,46,66,0.4),rgba(26,46,66,0))] 2xl:block"
             />
           </div>
         </div>

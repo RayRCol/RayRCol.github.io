@@ -25,7 +25,7 @@ const departures = await getDepartureEntries();
             <span>•</span>
             <span>{formatLaunchTime(departure.data.launchTime)}</span>
           </div>
-          <h2 class="mt-5 font-display text-[2rem] leading-none text-white">{departure.data.title}</h2>
+          <h2 class="mt-5 break-words font-display text-[2rem] leading-none text-white">{departure.data.title}</h2>
           <p class="mt-4 text-[1.02rem] text-white/72">{departure.data.detail}</p>
           <dl class="mt-8 grid gap-4 text-sm text-white/54">
             <div>

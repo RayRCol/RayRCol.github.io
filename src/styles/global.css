@@ -88,9 +88,9 @@ html[data-theme='light'] {
   --hero-utility-color: rgba(252, 244, 228, 0.82);
   --overlay-hero-title: #16283a;
   --overlay-hero-copy: rgba(22, 40, 58, 0.78);
-  --overlay-feature-title: #16283a;
-  --overlay-feature-copy: rgba(22, 40, 58, 0.76);
-  --overlay-feature-meta: rgba(22, 40, 58, 0.64);
+  --overlay-feature-title: #ffffff;
+  --overlay-feature-copy: rgba(255, 255, 255, 0.78);
+  --overlay-feature-meta: rgba(255, 255, 255, 0.68);
   --discovery-surface: #ece4d4;
   --discovery-overlay: linear-gradient(to bottom,rgba(243,237,224,0.92),rgba(243,237,224,0.62),rgba(243,237,224,0.95));
   --discovery-title: #16283a;
@@ -135,6 +135,51 @@ img {
   color: var(--hero-utility-color);
 }
 
+.brand-logo {
+  display: inline-grid;
+  line-height: 0;
+}
+
+.brand-logo-image {
+  display: block;
+  grid-area: 1 / 1;
+  height: auto;
+  width: 100%;
+  transition: opacity 240ms ease;
+}
+
+.brand-logo-image-light {
+  opacity: 0;
+}
+
+.brand-logo-tone-dark .brand-logo-image-dark,
+.brand-logo-tone-light .brand-logo-image-light {
+  opacity: 1;
+}
+
+.brand-logo-tone-dark .brand-logo-image-light,
+.brand-logo-tone-light .brand-logo-image-dark {
+  opacity: 0;
+}
+
+html[data-theme='light'] .brand-logo-image-dark {
+  opacity: 0;
+}
+
+html[data-theme='light'] .brand-logo-image-light {
+  opacity: 1;
+}
+
+html[data-theme='light'] .brand-logo-tone-dark .brand-logo-image-dark,
+html[data-theme='light'] .brand-logo-tone-light .brand-logo-image-light {
+  opacity: 1;
+}
+
+html[data-theme='light'] .brand-logo-tone-dark .brand-logo-image-light,
+html[data-theme='light'] .brand-logo-tone-light .brand-logo-image-dark {
+  opacity: 0;
+}
+
 .theme-toggle {
   box-shadow: 0 0 0 1px transparent;
 }
@@ -164,7 +209,15 @@ html[data-theme='light'] .theme-toggle-hero {
 }
 
 html[data-theme='light'] .overlay-feature-scrim {
-  background: linear-gradient(180deg,rgba(252,244,228,0.14),rgba(252,244,228,0.56) 42%,rgba(252,244,228,0.9));
+  background: linear-gradient(180deg,rgba(5,8,12,0.08),rgba(5,8,12,0.5) 42%,rgba(5,8,12,0.9));
+}
+
+html[data-theme='light'] .overlay-hero-title-image {
+  color: #ffffff;
+}
+
+html[data-theme='light'] .overlay-hero-copy-image {
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .overlay-feature-title {
