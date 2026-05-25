@@ -75,13 +75,9 @@ export const siteNav: NavLink[] = [
 
 export const heroLeftNav: NavLink[] = [
   { label: 'Projects', href: '/missions/' },
-  { label: 'Analysis', href: '/reports/' },
-  { label: 'Research', href: '/science/' },
 ];
 
 export const heroRightNav: NavLink[] = [
-  { label: 'Stack', href: '/technology/' },
-  { label: 'Blog', href: '/news/' },
   { label: 'About', href: '/about/' },
 ];
 
