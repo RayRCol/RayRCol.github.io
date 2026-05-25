@@ -3,52 +3,48 @@ type BrandLogoTone = 'dark' | 'light' | 'theme';
 
 interface BrandLogoProps {
   className?: string;
-  imageClassName?: string;
   kind?: BrandLogoKind;
   label?: string;
   tone?: BrandLogoTone;
 }
 
-const logoSources: Record<BrandLogoKind, { dark: string; light: string }> = {
-  symbol: {
-    dark: '/brand/aeon-symbol-dark.png',
-    light: '/brand/aeon-symbol-light.png',
-  },
-  wordmark: {
-    dark: '/brand/aeon-logo-dark.png',
-    light: '/brand/aeon-logo-light.png',
-  },
+const toneClass: Record<BrandLogoTone, string> = {
+  dark: 'text-white',
+  light: 'text-navy-text',
+  theme: 'text-white',
 };
 
 export default function BrandLogo({
   className = '',
-  imageClassName = '',
   kind = 'wordmark',
-  label = 'AEON / SPACE',
+  label = 'Ramon Rueda',
   tone = 'theme',
 }: BrandLogoProps) {
-  const sources = logoSources[kind];
+  const color = toneClass[tone];
+
+  if (kind === 'symbol') {
+    return (
+      <span
+        aria-label={label}
+        className={`inline-flex items-center justify-center ${color} ${className}`.trim()}
+        role="img"
+      >
+        <span className="font-display text-[1.6em] font-bold leading-none tracking-tight">
+          RR
+        </span>
+      </span>
+    );
+  }
 
   return (
     <span
       aria-label={label}
-      className={`brand-logo brand-logo-${kind} brand-logo-tone-${tone} ${className}`.trim()}
+      className={`inline-flex items-center ${color} ${className}`.trim()}
       role="img"
     >
-      <img
-        alt=""
-        aria-hidden="true"
-        className={`brand-logo-image brand-logo-image-dark ${imageClassName}`.trim()}
-        decoding="async"
-        src={sources.dark}
-      />
-      <img
-        alt=""
-        aria-hidden="true"
-        className={`brand-logo-image brand-logo-image-light ${imageClassName}`.trim()}
-        decoding="async"
-        src={sources.light}
-      />
+      <span className="font-display text-[0.72em] font-bold uppercase leading-none tracking-[0.18em]">
+        Ramon Rueda
+      </span>
     </span>
   );
 }

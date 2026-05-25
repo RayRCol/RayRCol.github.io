@@ -1,32 +1,32 @@
 ---
-title: Technology Framework
-summary: AEON's technology portfolio is organized around vehicles, autonomous systems, relay infrastructure, and the industrial discipline needed to support missions that cannot afford brittle hardware.
+title: Tools & Stack
+summary: A pragmatic stack built around Python, tree-based ensembles, deep learning frameworks, and cloud-ready deployment tools — selected for real-world performance, not resume padding.
 eyebrow: Technology
 image: /images/singleton-technology.png
 highlights:
-  - label: Priority Stack
-    value: Launch vehicles, deep-space relays, autonomous robotics, and hardened sensing systems.
-  - label: Design Principle
-    value: Graceful degradation. Systems must remain useful even when conditions stop being ideal.
-  - label: Deployment Horizon
-    value: 2026-2027 orbital, lunar, Martian, and deep-space missions.
+  - label: Core Languages
+    value: Python (primary), SQL, Bash.
+  - label: ML & DL
+    value: Scikit-learn, XGBoost, LightGBM, CatBoost, TensorFlow, Keras, PyTorch, Hugging Face Transformers.
+  - label: Data & Deployment
+    value: Pandas, NumPy, Matplotlib, Seaborn, Plotly, Streamlit, FastAPI, Docker, GitHub Actions.
 ---
-AEON develops technology as an operational layer, not a showroom. Every platform must survive long communication delays, partial failures, and mission conditions that cannot be patched in real time.
+My technical choices are driven by one question: does this tool make the work more reliable and the results more trustworthy? I reach for complexity only when simpler solutions have been ruled out.
 
-## Vehicle architecture
+## Machine learning stack
 
-Launch systems are designed around modular payload interfaces so the agency can move science, infrastructure, and logistics hardware without rebuilding the full stack for every departure. That speeds up campaign planning and lowers integration risk across consecutive launch windows.
+For tabular problems I default to gradient boosting (XGBoost, LightGBM, CatBoost) with strong feature engineering. Linear models serve as baselines and interpretability benchmarks. Scikit-learn provides the pipeline infrastructure, cross-validation, and preprocessing utilities that keep experiments consistent and reproducible.
 
-The same logic shapes orbital insertion modules and transfer stages. AEON prefers architectures that accept multiple mission profiles over highly specialized hardware that only performs well inside one narrow envelope.
+For hyperparameter optimization I use Optuna, which offers Bayesian search without verbose boilerplate. SHAP is standard practice for model explainability — I include SHAP force plots and summary plots in every model report.
 
-## Autonomy and robotics
+## Deep learning
 
-Deep-space operations require machines that can interpret degraded signals, navigate uncertainty, and continue useful work when communication with Earth is delayed. AEON's robotics program therefore prioritizes decision support, terrain interpretation, and adaptive sampling rather than decorative autonomy claims.
+TensorFlow and Keras are my primary deep learning tools for computer vision and NLP tasks. I use PyTorch when a project requires custom training loops or research-oriented flexibility. Hugging Face Transformers is the default starting point for any NLP task where pre-trained language models are applicable.
 
-Autonomy is treated as a risk-management tool. The more effectively a vehicle can stabilize itself and preserve mission intent, the more aggressive the agency can be with distance and duration.
+## Data engineering and visualization
 
-## Relay and observation systems
+Pandas and NumPy cover nearly all data manipulation needs. For visualization I use Matplotlib and Seaborn for static reporting and Plotly for interactive charts embedded in Streamlit dashboards.
 
-Communications are mission hardware. AEON's relay architecture is built to extend telemetry confidence, command resiliency, and data continuity across multiple active theaters. The agency pairs that with observation arrays that can validate events, track anomalies, and preserve scientific context over long campaigns.
+## Deployment and MLOps
 
-That combination turns isolated missions into a connected program with shared awareness.
+Production deployments are built with FastAPI (REST inference endpoints), containerized with Docker, and served on Railway or Hugging Face Spaces. CI/CD is managed through GitHub Actions. I'm currently expanding my MLOps knowledge toward experiment tracking with MLflow and model monitoring with Evidently.

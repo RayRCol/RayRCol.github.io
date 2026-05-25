@@ -1,30 +1,30 @@
 ---
-title: Science Programs
-summary: AEON's science program spans planetary survey, atmospheric analysis, heliophysics, and subsurface exploration, with each campaign designed to produce reusable knowledge for the next wave of missions.
-eyebrow: Science Directorate
+title: Research Areas
+summary: My research interests span supervised learning, deep neural architectures, NLP, and the practical application of statistical methods to real-world business and scientific problems.
+eyebrow: Research
 image: /images/singleton-science.png
 highlights:
-  - label: Focus Areas
-    value: Planetary habitability, heliosphere mapping, cryogenic oceans, and solar event analysis.
+  - label: Primary Focus
+    value: Predictive modeling with tabular data, deep learning for image classification, and NLP for text understanding.
   - label: Method
-    value: Pair every flagship discovery with data pipelines, repeatable instrumentation, and open technical reporting.
+    value: Empirical and reproducible. Every experiment is version-controlled and documented from hypothesis through evaluation.
   - label: Output
-    value: Reports, mission briefings, observation archives, and downstream design changes for future launches.
+    value: Analysis reports, project write-ups, and open-source notebooks published alongside each project.
 ---
-AEON's scientific work starts with a simple premise: data is only valuable if it changes what the agency can do next. That means research priorities are chosen not only for novelty, but for how well they strengthen mission planning and future discovery.
+My research approach starts from a simple principle: every model should answer a specific question, and every experiment should be reproducible. That means treating model development as a scientific process — forming hypotheses, designing controlled experiments, and interpreting results critically rather than optimizing for a single metric.
 
-## Discovery with continuity
+## Supervised learning and tabular data
 
-Flagship discoveries attract attention, but the agency is structured to turn those moments into sustained programs. A spectral signature leads to improved instrumentation. A subsurface anomaly shapes the next sampling protocol. A solar event model changes how crewed vehicles are shielded and routed.
+Most real-world data science problems involve structured, tabular data: customer records, financial transactions, sensor logs. My work in this area focuses on feature engineering, handling class imbalance, and building ensemble models that generalize well beyond the training distribution. I pay particular attention to model interpretability through techniques like SHAP and partial dependence plots.
 
-This is how AEON keeps science from becoming disconnected from engineering reality.
+## Deep learning and computer vision
 
-## Core disciplines
+I apply convolutional neural networks to image classification and object detection tasks. My projects in this area include a malaria cell detection model and a facial emotion recognition system. I'm particularly interested in how transfer learning and data augmentation can make deep models viable with limited labeled data.
 
-The current science portfolio centers on exoplanet atmospheres, icy moon environments, solar magnetic behavior, and long-baseline observation of the outer system. Each area feeds a different layer of the agency's roadmap, from remote sensing to crew safety to autonomous exploration.
+## Natural language processing
 
-The portfolio is intentionally broad, but not unfocused. AEON invests where new knowledge can materially alter its ability to travel farther, observe better, or survive longer.
+My NLP work focuses on sentiment analysis, topic modeling, and text classification using pre-trained transformer models from Hugging Face. I'm interested in how these tools can be deployed in production pipelines that process text continuously at scale, not just batch-evaluated in notebooks.
 
-## Publishing and review
+## Reproducibility and documentation
 
-Every major campaign is expected to produce public-facing reports and internally actionable technical briefs. That publication rhythm matters. It creates traceability between observation, interpretation, and design decisions, which is critical for any agency operating on long time horizons.
+I treat every project's notebook and analysis as a first-class artifact. Models trained without documented experiments are hard to improve and impossible to audit. My goal is to produce research that a collaborator — or a future version of me — can pick up and continue without guesswork.

@@ -79,7 +79,7 @@ export default function DepartureSection({ content, launches }: DepartureSection
                 href={content.allHref}
                 className="departure-meta group mb-5 hidden items-center gap-2 font-display text-[12px] uppercase tracking-[0.24em] transition-colors duration-300 hover:text-white md:inline-flex"
               >
-                View Schedule
+                View Timeline
                 <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={16} />
               </a>
               <h2 className="departure-title break-words font-display text-4xl leading-none font-bold sm:text-6xl">{content.title}</h2>

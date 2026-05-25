@@ -64,57 +64,57 @@ export interface FooterMeta {
 }
 
 export const siteNav: NavLink[] = [
-  { label: 'Missions', href: '/missions/' },
-  { label: 'Reports', href: '/reports/' },
-  { label: 'News', href: '/news/' },
-  { label: 'Departures', href: '/departures/' },
-  { label: 'Technology', href: '/technology/' },
-  { label: 'Science', href: '/science/' },
+  { label: 'Projects', href: '/missions/' },
+  { label: 'Analysis', href: '/reports/' },
+  { label: 'Blog', href: '/news/' },
+  { label: 'Timeline', href: '/departures/' },
+  { label: 'Stack', href: '/technology/' },
+  { label: 'Research', href: '/science/' },
   { label: 'About', href: '/about/' },
 ];
 
 export const heroLeftNav: NavLink[] = [
-  { label: 'Missions', href: '/missions/' },
-  { label: 'Explore', href: '/reports/' },
-  { label: 'Science', href: '/science/' },
+  { label: 'Projects', href: '/missions/' },
+  { label: 'Analysis', href: '/reports/' },
+  { label: 'Research', href: '/science/' },
 ];
 
 export const heroRightNav: NavLink[] = [
-  { label: 'Technology', href: '/technology/' },
-  { label: 'News', href: '/news/' },
+  { label: 'Stack', href: '/technology/' },
+  { label: 'Blog', href: '/news/' },
   { label: 'About', href: '/about/' },
 ];
 
 export const mobileNav: NavLink[] = [...heroLeftNav, ...heroRightNav];
 
 export const heroContent: HeroContent = {
-  eyebrow: 'THE BOUNDARY IS',
+  eyebrow: 'DATA SCIENCE BY',
   paragraph:
-    'We stand at the precipice of the infinite. AEON exists to push human ambition beyond the heliosphere, seeking answers in the dark, and bringing the light of understanding back home.',
+    'Turning raw data into actionable intelligence. I build machine learning models, perform deep exploratory analysis, and craft clear data stories — combining statistical rigor with real-world impact.',
   primaryCta: {
     href: '/missions/',
-    label: 'Explore Missions',
+    label: 'Explore Projects',
   },
   secondaryCta: {
-    href: '/science/',
-    label: 'Our Science',
+    href: '/reports/',
+    label: 'My Analysis',
   },
-  utilityLabel: 'EST. 2024',
+  utilityLabel: 'ML · DS · AI',
 };
 
 export const stats: StatBlockProps[] = [
-  { value: '14', label: 'Active Missions' },
-  { value: '4,200', label: 'Hours in Void' },
-  { value: '8', label: 'Planets Surveyed' },
-  { value: '2.4B', label: 'Miles Traveled' },
+  { value: '7', label: 'Projects Completed' },
+  { value: '5', label: 'ML Models Built' },
+  { value: '3', label: 'Years of Experience' },
+  { value: '50K+', label: 'Records Analyzed' },
 ];
 
 export const footerMeta: FooterMeta = {
-  title: 'AEON',
+  title: 'Ramon Rueda',
   description:
-    'Government-backed deep space exploration agency. Pushing the boundaries of human ambition and scientific discovery.',
+    'Data Scientist specializing in Machine Learning and Data Analysis. Building intelligent systems from raw data.',
 };
 
 export const footerDirectory: NavLink[] = [...siteNav];
 
-export const footerPolicies: string[] = ['Privacy', 'Terms', 'Classified'];
+export const footerPolicies: string[] = ['Privacy', 'GitHub', 'LinkedIn'];

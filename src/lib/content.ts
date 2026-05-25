@@ -96,8 +96,8 @@ export function toSpectrumBars(entry: ReportEntry): SpectrumBarProps[] {
 
 export function toNextDepartureContent(entry: DepartureEntry): NextDepartureContent {
   return {
-    title: 'Next Departure',
-    label: 'T-Minus',
+    title: 'Next Milestone',
+    label: 'Due In',
     launchDate: toUtcDateInput(entry.data.launchDate),
     launchTime: entry.data.launchTime,
     image: entry.data.image,

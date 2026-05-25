@@ -1,30 +1,30 @@
 ---
-title: About AEON
-summary: AEON is a fictional government-backed deep space exploration agency built around disciplined engineering, long-range science, and the infrastructure required to keep ambitious missions alive far from Earth.
-eyebrow: Agency Profile
+title: About Ramon Rueda
+summary: Data Scientist with a background in machine learning, statistical analysis, and data-driven product development. I turn complex datasets into clear decisions and working systems.
+eyebrow: About Me
 image: /images/singleton-about.png
 highlights:
-  - label: Mandate
-    value: Expand human reach beyond the heliosphere through sustained exploration and systems infrastructure.
-  - label: Operating Model
-    value: Publicly funded, mission-first, with long-horizon science and logistics treated as one continuous program.
-  - label: Established
-    value: '2024'
+  - label: Specialization
+    value: Machine Learning, Predictive Modeling, and Data Analysis — from structured tabular data to computer vision and NLP.
+  - label: Approach
+    value: Rigorous methodology paired with practical impact. Every model I build is designed to answer a real question, not just achieve a benchmark score.
+  - label: Based In
+    value: Puerto Rico, open to remote opportunities worldwide.
 ---
-AEON was founded to solve a practical problem disguised as a philosophical one: if humanity intends to travel farther, it needs institutions that can think farther. Deep space exploration is not only about singular launches or headline discoveries. It is about maintaining capability across decades, distances, and uncertain conditions.
+I'm a Data Scientist focused on building machine learning systems that solve real problems. My work spans predictive modeling, exploratory analysis, and applied deep learning — always with an emphasis on clarity, reproducibility, and practical value.
 
-## What AEON is built to do
+## What I build
 
-The agency combines mission operations, advanced systems research, launch coordination, scientific analysis, and long-duration logistics under one command structure. That model keeps discovery tied to infrastructure. It also prevents exploratory missions from becoming isolated demonstrations that cannot scale into durable programs.
+My projects cover a wide range of domains: credit risk scoring, computer vision for medical imaging, NLP pipelines for customer feedback, and recommendation systems. In each case, the work starts not from a model choice but from a precise question — and the model is selected to answer it as accurately and explainably as possible.
 
-AEON treats every mission as part of a larger lattice. A probe, a habitat, a relay array, and a launch vehicle are all pieces of the same operating system.
+I document my process thoroughly so that the reasoning behind each decision is traceable, from feature engineering choices to final evaluation metrics.
 
-## Institutional approach
+## How I work
 
-Public accountability matters to the agency's identity. AEON publishes science reports, operational summaries, and mission briefs so that each advance can be understood in context rather than reduced to spectacle. The goal is to build legitimacy through rigor and transparency.
+I believe the most important skill in data science is not technical — it is the ability to translate between business problems and statistical problems, and back again. A 94% AUC-ROC score means nothing if it doesn't connect to a decision someone will actually make differently.
 
-That discipline extends inward as well. Mission planning is intentionally conservative at the systems level so the agency can be ambitious at the exploration level.
+That translation discipline shapes how I design projects, write reports, and present findings. I aim to be understood by engineers, domain experts, and stakeholders alike.
 
-## Long-range view
+## What's next
 
-AEON's long-term work focuses on three fronts: resilient communications, autonomous science in remote environments, and the logistics needed to keep human and robotic missions moving together. The agency believes the next era of exploration belongs to organizations that can sustain presence, not just reach it once.
+I'm currently expanding into MLOps and production deployment, building toward a portfolio where every model is live and testable rather than static. I'm also deepening my work in transformer architectures and their application to structured data problems.
