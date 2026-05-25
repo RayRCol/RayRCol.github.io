@@ -66,10 +66,6 @@ export interface FooterMeta {
 export const siteNav: NavLink[] = [
   { label: 'Projects', href: '/missions/' },
   { label: 'Analysis', href: '/reports/' },
-  { label: 'Blog', href: '/news/' },
-  { label: 'Timeline', href: '/departures/' },
-  { label: 'Stack', href: '/technology/' },
-  { label: 'Research', href: '/science/' },
   { label: 'About', href: '/about/' },
 ];
 
