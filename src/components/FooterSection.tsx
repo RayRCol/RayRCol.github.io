@@ -26,41 +26,9 @@ export default function FooterSection({ directory, meta, policies }: FooterSecti
         className="bg-footer-bg py-18 sm:py-22"
       >
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,0.95fr)_minmax(0,0.8fr)]">
-            <div className="max-w-2xl">
-              <BrandLogo className="w-[min(100%,22rem)] sm:w-[28rem]" />
-              <p className="mt-6 max-w-xl text-[1.1rem] leading-8 text-white/60">{meta.description}</p>
-            </div>
-
-            <div>
-              <h3 className="font-display text-[11px] uppercase tracking-[0.26em] text-white/80">Directory</h3>
-              <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-                {directory.map((item) => (
-                  <li key={item.label}>
-                    <a className="text-[1.1rem] text-white/60 transition-colors duration-300 hover:text-accent-blue" href={item.href}>
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-display text-[11px] uppercase tracking-[0.26em] text-white/80">Contact</h3>
-              <div className="mt-6 space-y-3 text-[1.1rem] text-white/60">
-                <p>ramonrueda.ds@gmail.com</p>
-                <p>
-                  <a href="https://github.com/RayRCol" className="text-accent-blue transition-colors duration-300 hover:text-white">
-                    github.com/RayRCol
-                  </a>
-                </p>
-                <p>
-                  <a href="https://linkedin.com/in/ramonrueda" className="transition-colors duration-300 hover:text-accent-blue">
-                    LinkedIn
-                  </a>
-                </p>
-              </div>
-            </div>
+          <div className="max-w-2xl">
+            <BrandLogo className="w-[min(100%,22rem)] sm:w-[28rem]" />
+            <p className="mt-6 max-w-xl text-[1.1rem] leading-8 text-white/60">{meta.description}</p>
           </div>
 
           <div className="mt-16 flex flex-col gap-6 border-t border-white/8 pt-8 text-[0.95rem] uppercase tracking-[0.08em] text-white/42 md:flex-row md:items-center md:justify-between">
