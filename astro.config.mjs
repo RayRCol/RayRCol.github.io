@@ -18,6 +18,7 @@ const adapter =
       : undefined;
 
 export default defineConfig({
+  site: 'https://RarRCol.github.io'
   ...(adapter ? { adapter } : {}),
   integrations: [react()],
   vite: {
