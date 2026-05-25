@@ -88,7 +88,7 @@ export const heroRightNav: NavLink[] = [
 export const mobileNav: NavLink[] = [...heroLeftNav, ...heroRightNav];
 
 export const heroContent: HeroContent = {
-  eyebrow: 'DATA SCIENCE BY',
+  eyebrow: 'DATA SCIENTIST',
   paragraph:
     'Turning raw data into actionable intelligence. I build machine learning models, perform deep exploratory analysis, and craft clear data stories — combining statistical rigor with real-world impact.',
   primaryCta: {
