@@ -1,5 +1,4 @@
 ---
-import DepartureSection from '../components/DepartureSection';
 import DiscoverySection from '../components/DiscoverySection';
 import FooterSection from '../components/FooterSection';
 import HeroShell from '../components/HeroShell';
@@ -16,25 +15,20 @@ import {
   stats,
 } from '../data/site';
 import {
-  getDepartureEntries,
   getMissionEntries,
   getReportEntries,
   toDiscoveryContent,
-  toLaunchRow,
   toMissionCard,
-  toNextDepartureContent,
   toSpectrumBars,
 } from '../lib/content';
 import '../styles/global.css';
 
-const [missionEntries, reportEntries, departureEntries] = await Promise.all([
+const [missionEntries, reportEntries] = await Promise.all([
   getMissionEntries(),
   getReportEntries(),
-  getDepartureEntries(),
 ]);
 
 const featuredReport = reportEntries[0];
-const featuredDeparture = departureEntries[0];
 ---
 
 <html lang="en" class="bg-page-bg">
@@ -83,13 +77,6 @@ const featuredDeparture = departureEntries[0];
         />
       ) : null}
       <StatsSection client:visible stats={stats} />
-      {featuredDeparture ? (
-        <DepartureSection
-          client:visible
-          content={toNextDepartureContent(featuredDeparture)}
-          launches={departureEntries.map(toLaunchRow)}
-        />
-      ) : null}
       <FooterSection
         client:visible
         directory={footerDirectory}
